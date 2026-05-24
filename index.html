@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PrivacyGuard PRO | Enterprise Audit</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #040712; color: white; font-family: sans-serif; text-align: center; }
+        .box { background: #111827; border: 2px solid #374151; padding: 30px; border-radius: 15px; max-width: 450px; margin: 40px auto; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5); }
+        .green-btn { background: #10b981; color: black; border: none; padding: 18px; border-radius: 12px; font-weight: bold; cursor: pointer; width: 100%; font-size: 18px; margin-top: 15px; transition: 0.2s; text-decoration: none; display: block; }
+        .green-btn:hover { background: #34d399; transform: scale(1.02); }
+        input { width: 100%; padding: 15px; margin-bottom: 12px; border-radius: 8px; border: 1px solid #374151; background: #1f2937; color: white; box-sizing: border-box; font-size: 16px; }
+        .hidden { display: none; }
+        .score { color: #f43f5e; font-size: 90px; font-weight: 900; margin: 0; }
+    </style>
+</head>
+<body class="py-12 px-6">
+
+    <h1 style="font-weight: 900; font-size: 2.5rem;">PrivacyGuard <span style="color: #10b981">PRO</span></h1>
+
+    <div id="div1" class="box text-left">
+        <h3 class="text-emerald-400 font-bold mb-4 uppercase tracking-widest text-xs">How to use:</h3>
+        <p class="text-sm text-slate-400 mb-6">1. Export your customer CSV.<br>2. Click scan below.<br>3. Review your risk score.</p>
+        <button class="green-btn" onclick="go2()">SCAN DATABASE</button>
+    </div>
+
+    <div id="div2" class="box hidden">
+        <h2 style="color: #10b981">Analysis Ready</h2>
+        <input type="text" id="name" placeholder="Full Name">
+        <input type="text" id="email" placeholder="Professional Email">
+        <button class="green-btn" onclick="go3()">REVEAL SCORE</button>
+    </div>
+
+    <div id="div3" class="box hidden">
+        <p class="text-xs font-bold text-slate-500 uppercase tracking-widest">Compliance Score</p>
+        <div class="score">34%</div>
+        <h3 class="text-rose-500 font-extrabold mb-6">CRITICAL RISK</h3>
+
+        <div style="text-align: left; background: #040712; padding: 20px; border-radius: 10px; margin-bottom: 20px; border: 1px solid #374151;">
+            <ul style="font-size: 13px; color: #9ca3af; line-height: 1.6;">
+                <li>• 1,240 Unencrypted Records</li>
+                <li>• Expired Deletion Policy</li>
+                <li>• Fine Exposure: <b>$14,500</b></li>
+            </ul>
+        </div>
+        
+        <!-- YOUR $1500 STRIPE LINK IS LIVE BELOW -->
+        <a href="https://buy.stripe.com/test_00w3cubtldBxgPEaxF0Fi09" target="_blank" class="green-btn">BOOK RECOVERY SESSION ($1,500)</a>
+    </div>
+
+    <script>
+        function go2() { document.getElementById('div1').style.display = 'none'; document.getElementById('div2').style.display = 'block'; }
+        function go3() { document.getElementById('div2').style.display = 'none'; document.getElementById('div3').style.display = 'block'; }
+    </script>
+</body>
+</html>

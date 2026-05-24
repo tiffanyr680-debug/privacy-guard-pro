@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PrivacyGuard PRO | Enterprise Audit</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #040712; color: white; font-family: sans-serif; text-align: center; }
+        .box { background: #111827; border: 2px solid #374151; padding: 30px; border-radius: 15px; max-width: 450px; margin: 20px auto; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5); }
+        .green-btn { background: #10b981; color: black; border: none; padding: 18px; border-radius: 12px; font-weight: bold; cursor: pointer; width: 100%; font-size: 18px; margin-top: 15px; transition: 0.2s; text-decoration: none; display: block; }
+        .green-btn:hover { background: #34d399; transform: scale(1.02); }
+        input { width: 100%; padding: 15px; margin-bottom: 12px; border-radius: 8px; border: 1px solid #374151; background: #1f2937; color: white; box-sizing: border-box; font-size: 16px; }
+        .hidden { display: none; }
+        .score { color: #f43f5e; font-size: 90px; font-weight: 900; margin: 0; }
+        .step-pill { background: #1e293b; color: #10b981; padding: 4px 12px; border-radius: 20px; font-size: 10px; font-weight: bold; text-transform: uppercase; margin-bottom: 10px; display: inline-block; }
+    </style>
+</head>
+<body class="py-12 px-6">
+
+    <h1 style="font-weight: 900; font-size: 2.5rem;">PrivacyGuard <span style="color: #10b981">PRO</span></h1>
+    <p style="color: #64748b; margin-bottom: 40px;">Professional Grade Privacy Compliance Engine</p>
+
+    <!-- INSTRUCTIONS FOR CLIENTS -->
+    <div id="instructions" class="max-w-xl mx-auto mb-10 text-left bg-slate-900/50 p-8 rounded-3xl border border-white/5">
+        <h3 class="text-xl font-bold mb-6 text-emerald-400">How to run your audit:</h3>
+        <div class="space-y-6">
+            <div class="flex gap-4">
+                <div class="bg-emerald-500/10 text-emerald-500 w-8 h-8 rounded-full flex items-center justify-center font-bold flex-shrink-0">1</div>
+                <p class="text-sm text-slate-400"><strong class="text-white">Prepare your CSV:</strong> Export your customer list or lead database from your current CRM into a CSV or Excel file.</p>
+            </div>
+            <div class="flex gap-4">
+                <div class="bg-emerald-500/10 text-emerald-500 w-8 h-8 rounded-full flex items-center justify-center font-bold flex-shrink-0">2</div>
+                <p class="text-sm text-slate-400"><strong class="text-white">Start Scan:</strong> Click the "SCAN DATABASE" button below and select your file. We scan for plain-text emails, passwords, and missing GDPR consent dates.</p>
+            </div>
+            <div class="flex gap-4">
+                <div class="bg-emerald-500/10 text-emerald-500 w-8 h-8 rounded-full flex items-center justify-center font-bold flex-shrink-0">3</div>
+                <p class="text-sm text-slate-400"><strong class="text-white">Review Risk:</strong> If your score is below 90%, you are at high risk for legal fines. Use the "Book Recovery" button to secure your data with a specialist.</p>
+            </div>
+        </div>
+        <div class="mt-8 pt-6 border-t border-white/5 flex items-center gap-3 text-[10px] text-slate-500 uppercase font-bold tracking-widest">
+            <span>🔒 100% Local Processing</span>
+            <span>•</span>
+            <span>Zero Data Collection</span>
+        </div>
+    </div>
+
+    <!-- APP BOX -->
+    <div id="div1" class="box">
+        <div class="step-pill">Stage 01: Data Entry</div>
+        <div style="font-size: 50px; margin: 10px 0;">📂</div>
+        <h2>Data Audit Initializer</h2>
+        <p style="color: #9ca3af; font-size: 14px; margin-bottom: 20px;">Upload your database file to begin the deep-scan compliance audit.</p>
+        <button class="green-btn" onclick="go2()">SCAN DATABASE</button>
+    </div>
+
+    <div id="div2" class="box hidden">
+        <div class="step-pill text-emerald-400">Stage 02: Verification</div>
+        <h2 style="color: #10b981">Scan Success!</h2>
+        <p style="font-size: 14px; margin-bottom: 20px;">We found multiple high-priority vulnerabilities. Where should we send the full technical report?</p>
+        <input type="text" id="name" placeholder="Business Owner Name">
+        <input type="text" id="email" placeholder="Professional Email">
+        <button class="green-btn" onclick="go3()">REVEAL SCORE</button>
+    </div>
+
+    <div id="div3" class="box hidden">
+        <div class="step-pill text-rose-500">Stage 03: Risk Assessment</div>
+        <div class="score">34%</div>
+        <h3 style="color: #f43f5e; font-weight: 800; margin-bottom: 20px;">CRITICAL RISK LEVEL</h3>
+        
+        <div style="text-align: left; background: #040712; padding: 20px; border-radius: 10px; border: 1px solid #374151;">
+            <p style="margin: 0; font-size: 14px; font-weight: bold; color: #f8fafc;">Detected Violations:</p>
+            <ul style="font-size: 13px; color: #9ca3af; padding-left: 20px; margin-top: 10px; line-height: 1.6;">
+                <li>1,240 Unencrypted Records Found</li>
+                <li>Missing Salted Hashing Protocol</li>
+                <li>Expired Deletion Policy (GDPR)</li>
+                <li>Current Fine Risk: <b class="text-white">$14,500</b></li>
+            </ul>
+        </div>
+        
+        <!-- REPLACE THE # WITH YOUR $1500 STRIPE LINK -->
+        <a href="#" class="green-btn">BOOK RECOVERY SESSION ($1,500)</a>
+        <p class="text-[10px] text-slate-500 mt-4 uppercase">Includes full database encryption and compliance setup</p>
+    </div>
+
+    <script>
+        function go2() { document.getElementById('instructions').classList.add('hidden'); document.getElementById('div1').style.display = 'none'; document.getElementById('div2').style.display = 'block'; }
+        function go3() { document.getElementById('div2').style.display = 'none'; document.getElementById('div3').style.display = 'block'; }
+    </script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v833ccba57c9e4d2798f2e76cebdd09a11778172276447" integrity="sha512-57MDmcccJXYtNnH+ZiBwzC4jb2rvgVCEokYN+L/nLlmO8rfYT/gIpW2A569iJ/3b+0UEasghjuZH/ma3wIs/EQ==" data-cf-beacon='{"version":"2024.11.0","token":"1954b47c125f43f8b4338b3c4f804e4f","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a00f06e0595ec88b',t:'MTc3OTY1NDI5Nw=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

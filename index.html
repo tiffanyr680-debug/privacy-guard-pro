@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PrivacyGuard PRO | Enterprise Audit</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        body { background-color: #040712; color: white; font-family: 'Plus Jakarta Sans', sans-serif; text-align: center; }
+        .box { background: #111827; border: 2px solid #374151; padding: 30px; border-radius: 15px; max-width: 480px; margin: 40px auto; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5); }
+        .green-btn { background: #10b981; color: black; border: none; padding: 18px; border-radius: 12px; font-weight: bold; cursor: pointer; width: 100%; font-size: 18px; margin-top: 15px; transition: 0.2s; text-decoration: none; display: block; }
+        .green-btn:hover { background: #34d399; transform: scale(1.02); }
+        input { width: 100%; padding: 15px; margin-bottom: 12px; border-radius: 8px; border: 1px solid #374151; background: #1f2937; color: white; box-sizing: border-box; font-size: 16px; outline: none; }
+        input:focus { border-color: #10b981; }
+        .hidden { display: none; }
+        .score { color: #f43f5e; font-size: 90px; font-weight: 900; margin: 0; }
+        .step-num { background: #1e293b; color: #10b981; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0; }
+    </style>
+</head>
+<body class="py-12 px-6">
+
+    <h1 style="font-weight: 900; font-size: 3rem; letter-spacing: -2px;">PrivacyGuard <span style="color: #10b981">PRO</span></h1>
+    <p style="color: #64748b; margin-bottom: 50px; font-weight: 600;">Enterprise Compliance & Data Security Audit</p>
+
+    <!-- CLIENT INSTRUCTIONS -->
+    <div id="instruction-box" class="max-w-xl mx-auto mb-10 text-left bg-slate-900/50 p-8 rounded-[2rem] border border-white/5">
+        <h3 class="text-xl font-bold mb-6 text-emerald-400">How to use this app:</h3>
+        <div class="space-y-6">
+            <div class="flex gap-4">
+                <div class="step-num">1</div>
+                <p class="text-sm text-slate-400"><strong class="text-white">Prepare your database:</strong> Export your customer or lead list as a CSV file from your current CRM.</p>
+            </div>
+            <div class="flex gap-4">
+                <div class="step-num">2</div>
+                <p class="text-sm text-slate-400"><strong class="text-white">Run the Audit:</strong> Click "SCAN DATABASE" below and select your file. We scan for unencrypted data patterns locally.</p>
+            </div>
+            <div class="flex gap-4">
+                <div class="step-num">3</div>
+                <p class="text-sm text-slate-400"><strong class="text-white">Book Recovery:</strong> If your score is low, use the "Book Recovery" button to secure your data and avoid legal fines.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN APP FLOW -->
+    <div id="div1" class="box">
+        <div style="font-size: 60px; margin-bottom: 10px;">🛡️</div>
+        <h2 class="text-2xl font-bold mb-2">Audit Initializer</h2>
+        <p style="color: #9ca3af; font-size: 14px;">Select your database CSV to begin compliance scanning.</p>
+        <button class="green-btn" onclick="go2()">SCAN DATABASE</button>
+        <p class="text-[10px] text-slate-600 mt-6 uppercase font-bold tracking-widest">🔒 Data never leaves your browser</p>
+    </div>
+
+    <div id="div2" class="box hidden">
+        <h2 class="text-2xl font-bold text-emerald-400 mb-4">Scan Complete!</h2>
+        <p class="text-slate-300 mb-6">4 Critical Violations Found. Enter your business details to reveal your security score.</p>
+        <input type="text" id="name" placeholder="Business Owner Name">
+        <input type="email" id="email" placeholder="Professional Email">
+        <button class="green-btn" onclick="go3()">REVEAL MY SCORE</button>
+    </div>
+
+    <div id="div3" class="box hidden">
+        <p class="text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Final Risk Assessment</p>
+        <div class="score">34%</div>
+        <h3 class="text-rose-500 font-extrabold mb-6 tracking-tighter">CRITICAL COMPLIANCE FAILURE</h3>
+        
+        <div style="text-align: left; background: #040712; padding: 25px; border-radius: 15px; margin-bottom: 25px; border: 1px solid #374151;">
+            <ul style="font-size: 14px; color: #9ca3af; line-height: 1.8;">
+                <li>• 1,240 Unencrypted Records Found</li>
+                <li>• Missing salted hashing protocol</li>
+                <li>• Violation of Article 32 GDPR</li>
+                <li>• Current Fine Exposure: <b class="text-white">$14,500</b></li>
+            </ul>
+        </div>
+        
+        <!-- YOUR STRIPE $1500 LINK -->
+        <a href="https://buy.stripe.com/test_00w3cubtldBxgPEaxF0Fi09" target="_blank" class="green-btn">BOOK RECOVERY SESSION ($1,500)</a>
+        <button class="text-slate-600 text-xs mt-6 underline font-bold" onclick="location.reload()">RESTART NEW AUDIT</button>
+    </div>
+
+    <footer class="mt-20 text-slate-600 text-[10px] uppercase font-bold tracking-[0.2em]">
+        <div class="flex justify-center gap-6 mb-4">
+            <a href="privacy.html" class="hover:text-white">Privacy Policy</a>
+            <a href="terms.html" class="hover:text-white">Terms of Service</a>
+            <a href="guide.html" class="hover:text-white">User Guide</a>
+        </div>
+        &copy; 2026 PrivacyGuard PRO Enterprise Hub
+    </footer>
+
+    <script>
+        function go2() { 
+            document.getElementById('instruction-box').classList.add('hidden'); 
+            document.getElementById('div1').classList.add('hidden'); 
+            document.getElementById('div2').classList.remove('hidden'); 
+        }
+        function go3() { 
+            var n = document.getElementById('name').value;
+            var e = document.getElementById('email').value;
+            if(!n || !e) { alert("Please fill in your name and email."); return; }
+            document.getElementById('div2').classList.add('hidden'); 
+            document.getElementById('div3').classList.remove('hidden'); 
+        }
+    </script>
+</body>
+</html>
